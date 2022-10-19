@@ -46,6 +46,7 @@
         class Order<TDelivery> where TDelivery : Delivery
         {
             private Product[] products;
+            private Buyer buyer;
             
             /// <summary>
             /// вид доставки заказа
@@ -67,6 +68,8 @@
                 get { return (index >= 0 && index < products.Length) ? products[index] : null; }
             }
 
+            public Buyer Buyer { get { return buyer; } }
+
             /// <summary>
             /// отображение адреса доставки
             /// </summary>
@@ -86,6 +89,33 @@
             
             public string Name { get { return name; } }
             public decimal Price { get { return price; } }
+        }
+
+        /// <summary>
+        /// пользователь
+        /// </summary>
+        abstract class User
+        {
+            private string name;
+            public string Name { get { return name; } }
+
+            public User(string name)
+            {
+                this.name = name;
+            }
+        }
+
+        /// <summary>
+        /// Покупатель
+        /// </summary>
+        class Buyer : User
+        {
+            private string address;
+            public string Address { get { return address; } }
+            public Buyer(string name, string address) : base(name)
+            {
+                this.address = address;
+            }
         }
     }
 }
