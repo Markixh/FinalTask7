@@ -45,6 +45,8 @@
         /// <typeparam name="TDelivery"></typeparam>
         class Order<TDelivery> where TDelivery : Delivery
         {
+            private Product[] products;
+            
             /// <summary>
             /// вид доставки заказа
             /// </summary>
@@ -56,9 +58,14 @@
             public int Number;
 
             /// <summary>
-            /// Описание заказа
+            /// Индексатор - коллекция товаров
             /// </summary>
-            public string Description;
+            /// <param name="index"></param>
+            /// <returns></returns>
+            public Product this[int index]
+            {
+                get { return (index >= 0 && index < products.Length) ? products[index] : null; }
+            }
 
             /// <summary>
             /// отображение адреса доставки
@@ -67,8 +74,6 @@
             {
                 Console.WriteLine(Delivery.Address);
             }
-
-            // ... Другие поля
         }
 
         /// <summary>
