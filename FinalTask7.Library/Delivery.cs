@@ -6,6 +6,10 @@
     public abstract class Delivery
     {
         public string Address;
+        public Delivery()
+        {
+
+        }
     }
 
     /// <summary>
@@ -13,6 +17,7 @@
     /// </summary>
     public class HomeDelivery : Delivery
     {
+        public HomeDelivery():base(){}
         /* ... */
     }
 
@@ -21,6 +26,7 @@
     /// </summary>
     public class PickPointDelivery : Delivery
     {
+        public PickPointDelivery() : base() { }
         /* ... */
     }
 
@@ -29,6 +35,7 @@
     /// </summary>
     public class ShopDelivery : Delivery
     {
+        public ShopDelivery() : base() { }
         /* ... */
     }
 }

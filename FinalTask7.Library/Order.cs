@@ -1,42 +1,60 @@
-﻿namespace FinalTask7.Library
+﻿using System.Drawing;
+
+namespace FinalTask7.Library
 {
     /// <summary>
     /// Заказ
     /// </summary>
     /// <typeparam name="TDelivery"></typeparam>
-    class Order<TDelivery> where TDelivery : Delivery
+    public class Order<TDelivery> where TDelivery : Delivery, new()
     {
-        private Product[] products;
+        private List<Product> products;
         private Buyer buyer;
+        private TDelivery delivery;
+        private int number;
+
+        private Random random;
 
         /// <summary>
         /// вид доставки заказа
         /// </summary>
-        public TDelivery Delivery;
+        public TDelivery Delivery { get { return delivery; } }
 
         /// <summary>
         /// номер заказа
         /// </summary>
-        public int Number;
+        public int Number { get { return number; } }
 
         /// <summary>
-        /// Индексатор - коллекция товаров
+        /// Покупатель
         /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public Product this[int index]
+        public Buyer Buyer { get { return buyer; } }
+
+        public Order()
         {
-            get { return (index >= 0 && index < products.Length) ? products[index] : null; }
+            this.delivery = new TDelivery();
+            this.number = random.Next(100000000);
+            this.buyer = new("Гость", Address.ConstAdr);
         }
 
-        public Buyer Buyer { get { return buyer; } }
+        public Order(Buyer buyer)
+        {
+            this.delivery = new TDelivery();
+            this.number = random.Next(100000000);
+            this.buyer = new("Гость", Address.ConstAdr);
+        }
 
         /// <summary>
         /// отображение адреса доставки
         /// </summary>
         public void DisplayAddress()
         {
-            Console.WriteLine(Delivery.Address);
+            Console.WriteLine(delivery.Address);
+        }
+
+        public void Add(Product product)
+        {
+            products.Add(product);
         }
     }
 }
