@@ -14,7 +14,7 @@ namespace FinalTask7
             stock.Add(new Product(name: "Клавиатура", price: 1000.00m));
             //Покупателя
 
-            Buyer user = new Buyer("Андрей", new Address(ind: "305000", region: "Курская обл.", area: "", city: "Курск", street: "Серегина", house: "2"));
+            Buyer user = new Buyer("Андрей", Address.ConstAdr);
         }    
     }
 }

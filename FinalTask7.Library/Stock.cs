@@ -15,12 +15,15 @@
         /// </summary>
         private int size;
 
+        private Address address;
+
         /// <summary>
         /// создание склада на основании списка продуктов
         /// </summary>
         /// <param name="products"></param>
-        public Stock(List<Product> products)
+        public Stock(List<Product> products, Address address)
         {
+            this.address = address;
             size = products.Count;
             this.products = products;
         }
@@ -29,10 +32,18 @@
         /// создание пустого склада с определенным размером
         /// </summary>
         /// <param name="size"></param>
+        public Stock(Address address, int size = 10)
+        {
+            this.size = size;
+            products = new List<Product>();
+            this.address = address;
+        }
+
         public Stock(int size = 10)
         {
             this.size = size;
             products = new List<Product>();
+            this.address = Address.ConstAdr;
         }
 
         /// <summary>

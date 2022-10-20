@@ -45,5 +45,7 @@
         {
             return $"{ind}, {region}, {area}, {city}, {street}, {house}";
         }
+
+        public static Address ConstAdr = new Address(ind: "305000", region: "Курская обл.", area: "", city: "Курск", street: "", house: "");
     }
 }
