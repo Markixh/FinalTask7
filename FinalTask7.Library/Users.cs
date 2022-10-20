@@ -3,7 +3,7 @@
     /// <summary>
     /// пользователь
     /// </summary>
-    abstract class User
+    public abstract class User
     {
         private string name;
         public string Name { get { return name; } }
@@ -17,11 +17,11 @@
     /// <summary>
     /// Покупатель
     /// </summary>
-    class Buyer : User
+    public class Buyer : User
     {
-        private string address;
-        public string Address { get { return address; } }
-        public Buyer(string name, string address) : base(name)
+        private Address address;
+        public string Address { get { return address.GetAddress(); } }
+        public Buyer(string name, Address address) : base(name)
         {
             this.address = address;
         }
