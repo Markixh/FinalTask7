@@ -1,121 +1,12 @@
-﻿namespace FinaTask7
+﻿using FinalTask7.Library;
+
+namespace FinalTask7
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
-        }
-
-        /// <summary>
-        /// Базовый класс доставки
-        /// </summary>
-        abstract class Delivery
-        {
-            public string Address;
-        }
-
-        /// <summary>
-        /// Доставка домой
-        /// </summary>
-        class HomeDelivery : Delivery
-        {
-            /* ... */
-        }
-
-        /// <summary>
-        /// Доставка до автомата выдачи
-        /// </summary>
-        class PickPointDelivery : Delivery
-        {
-            /* ... */
-        }
-
-        /// <summary>
-        /// Доставка в магазин
-        /// </summary>
-        class ShopDelivery : Delivery
-        {
-            /* ... */
-        }
-
-        /// <summary>
-        /// Заказ
-        /// </summary>
-        /// <typeparam name="TDelivery"></typeparam>
-        class Order<TDelivery> where TDelivery : Delivery
-        {
-            private Product[] products;
-            private Buyer buyer;
-            
-            /// <summary>
-            /// вид доставки заказа
-            /// </summary>
-            public TDelivery Delivery;
-
-            /// <summary>
-            /// номер заказа
-            /// </summary>
-            public int Number;
-
-            /// <summary>
-            /// Индексатор - коллекция товаров
-            /// </summary>
-            /// <param name="index"></param>
-            /// <returns></returns>
-            public Product this[int index]
-            {
-                get { return (index >= 0 && index < products.Length) ? products[index] : null; }
-            }
-
-            public Buyer Buyer { get { return buyer; } }
-
-            /// <summary>
-            /// отображение адреса доставки
-            /// </summary>
-            public void DisplayAddress()
-            {
-                Console.WriteLine(Delivery.Address);
-            }
-        }
-
-        /// <summary>
-        /// Товар
-        /// </summary>
-        class Product
-        {
-            private string name;
-            private decimal price;
-            
-            public string Name { get { return name; } }
-            public decimal Price { get { return price; } }
-        }
-
-        /// <summary>
-        /// пользователь
-        /// </summary>
-        abstract class User
-        {
-            private string name;
-            public string Name { get { return name; } }
-
-            public User(string name)
-            {
-                this.name = name;
-            }
-        }
-
-        /// <summary>
-        /// Покупатель
-        /// </summary>
-        class Buyer : User
-        {
-            private string address;
-            public string Address { get { return address; } }
-            public Buyer(string name, string address) : base(name)
-            {
-                this.address = address;
-            }
-        }
+        }    
     }
 }
