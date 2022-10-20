@@ -68,9 +68,8 @@
         /// <returns></returns>
         public bool Take(Product product)
         {
-            if (products.Count > 0 && products.Contains(product))
-            {                
-                products.Remove(product);
+            if (products.Count > 0 && products.Remove(product))
+            {      
                 return true;
             }
             else return false;

@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace FinalTask7.Library
+﻿namespace FinalTask7.Library
 {
     /// <summary>
     /// Заказ
@@ -33,15 +31,15 @@ namespace FinalTask7.Library
         public Order()
         {
             this.delivery = new TDelivery();
+            random = new Random();
             this.number = random.Next(100000000);
             this.buyer = new("Гость", Address.ConstAdr);
+            products = new List<Product>();
         }
 
-        public Order(Buyer buyer)
+        public Order(Buyer buyer) : this()
         {
-            this.delivery = new TDelivery();
-            this.number = random.Next(100000000);
-            this.buyer = new("Гость", Address.ConstAdr);
+            this.buyer = buyer;
         }
 
         /// <summary>
@@ -56,5 +54,7 @@ namespace FinalTask7.Library
         {
             products.Add(product);
         }
+
+        public List<Product> Products { get { return products; } }
     }
 }
