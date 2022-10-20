@@ -6,7 +6,12 @@ namespace FinalTask7
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Stock stock = new Stock(); //создаем склад размером на 10 едениц товара
+            //заполняем склад
+            stock.Add(new Product(name: "Принтер", price: 10000.00m));
+            stock.Add(new Product(name: "Сканер", price: 5000.00m));
+            stock.Add(new Product(name: "Мышь", price: 500.00m));
+            stock.Add(new Product(name: "Клавиатура", price: 1000.00m));
         }    
     }
 }
