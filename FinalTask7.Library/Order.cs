@@ -47,24 +47,7 @@
         /// </summary>
         public void DisplayStatus()
         {
-            switch ((int)delivery.Status)
-            {
-                case 0:
-                    Console.WriteLine("Заказ создан");
-                    break;
-                case 1:
-                    Console.WriteLine("Заказ собран");
-                    break;
-                case 2:
-                    Console.WriteLine("Заказ отправлен");
-                    break;
-                case 3:
-                    Console.WriteLine("Заказ доставлен");
-                    break;
-                case 4:
-                    Console.WriteLine("Заказ получен");
-                    break;                
-            }
+            Console.WriteLine(delivery.Status.GetStatus());
         }
 
         public void Add(Product product)
@@ -73,5 +56,10 @@
         }
 
         public List<Product> Products { get { return products; } }
+    }
+
+    public class InternetOrder : Order<HomeDelivery>
+    {
+
     }
 }
