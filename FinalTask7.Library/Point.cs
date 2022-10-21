@@ -1,5 +1,8 @@
 ﻿namespace FinalTask7.Library
 {
+    /// <summary>
+    /// точка для доставки
+    /// </summary>
     public abstract class Point
     {
         private protected string name;
@@ -15,6 +18,9 @@
         }   
     }
 
+    /// <summary>
+    /// ПикПоинт
+    /// </summary>
     public class PicPoint : Point
     {
         public PicPoint(string name, string address) : base(name, address)
@@ -23,6 +29,9 @@
         }
     }
 
+    /// <summary>
+    /// Магазин
+    /// </summary>
     public class Shop : Point
     {
         public Shop(string name, string address) : base(name, address)
@@ -31,6 +40,9 @@
         }
     }
 
+    /// <summary>
+    /// Дом
+    /// </summary>
     public class Home : Point
     {
         public Home(string name, string address) : base(name, address)

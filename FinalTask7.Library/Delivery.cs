@@ -20,6 +20,9 @@
             status = EStatus.Created;
         }
 
+        /// <summary>
+        /// Виды статусов доставки
+        /// </summary>
         public enum EStatus
         {
             Created = 0,
@@ -39,7 +42,9 @@
         {
             address = buyer.Address;
         }
+        
         public override EStatus Status { get => base.Status; set => base.Status = value; }
+        
         public HomeDelivery()
         {
             Status = EStatus.Created;
@@ -55,7 +60,9 @@
         {
             address = pickPoint.Address;
         }
+
         public override EStatus Status { get => base.Status; set => base.Status = value; }
+
         public PickPointDelivery()
         {
             Status = EStatus.Created;
@@ -71,7 +78,9 @@
         {
             address = shop.Address;
         }
+
         public override EStatus Status { get => base.Status; set => base.Status = value; }
+
         public ShopDelivery()
         {
             Status = EStatus.Created;

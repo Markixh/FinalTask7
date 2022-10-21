@@ -32,6 +32,12 @@ namespace FinalTask7.Library
             this.price = price;
         }
 
+        /// <summary>
+        /// сумма двух продуктов
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         public static List<Product> operator + (Product a, Product b)
         {
             List<Product> list = new List<Product>();

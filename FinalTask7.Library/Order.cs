@@ -50,17 +50,29 @@
             Console.WriteLine(delivery.Status.GetStatus());
         }
 
+        /// <summary>
+        /// Добавление продуктов в заказ
+        /// </summary>
+        /// <param name="product"></param>
         public void Add(Product product)
         {
             products.Add(product);
         }
 
+        /// <summary>
+        /// Список продуктов в заказе (индексатор)
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public Product this[int i]
         {
             get { return products[i]; }
         }
     }
 
+    /// <summary>
+    /// наследование обобщенного класса
+    /// </summary>
     public class InternetOrder : Order<HomeDelivery>
     {
 

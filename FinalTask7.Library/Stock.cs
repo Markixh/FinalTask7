@@ -46,6 +46,11 @@
             this.address = Address.ConstAdr;
         }
 
+        /// <summary>
+        /// список продуктов (Индексатор)
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public Product this[int i]
         {
             get { return products[i]; }
@@ -76,6 +81,12 @@
             products.RemoveAt(ind);
             return take;
         }
+
+        /// <summary>
+        /// Получить продукт со склада
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public Product Take(string name)
         {
             foreach (var product in products)

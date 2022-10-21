@@ -2,6 +2,11 @@
 {
     public static class DeliveryExtensions
     {
+        /// <summary>
+        /// Метод расширения для определения статуса доставки
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
         public static string GetStatus(this Delivery.EStatus status)
         {
             switch ((int)status)
