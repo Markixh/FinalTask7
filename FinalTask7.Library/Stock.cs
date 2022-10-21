@@ -46,7 +46,11 @@
             this.address = Address.ConstAdr;
         }
 
-        /// <summary>
+        public Product this[int i]
+        {
+            get { return products[i]; }
+        }
+
         /// добавление продуктов в склад
         /// </summary>
         /// <param name="product"></param>

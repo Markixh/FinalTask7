@@ -55,7 +55,10 @@
             products.Add(product);
         }
 
-        public List<Product> Products { get { return products; } }
+        public Product this[int i]
+        {
+            get { return products[i]; }
+        }
     }
 
     public class InternetOrder : Order<HomeDelivery>
