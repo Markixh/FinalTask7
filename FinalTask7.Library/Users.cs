@@ -20,7 +20,9 @@
     public class Buyer : User
     {
         private Address address;
+
         public string Address { get { return address.GetAddress(); } }
+
         public Buyer(string name, Address address) : base(name)
         {
             this.address = address;

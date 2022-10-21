@@ -53,9 +53,14 @@
         /// <returns></returns>
         public Product this[int i]
         {
-            get { return products[i]; }
+            get 
+            {
+                if (i < products.Count && i > 0) return products[i];
+                else return null;
+            }
         }
 
+        ///<summary>
         /// добавление продуктов в склад
         /// </summary>
         /// <param name="product"></param>
