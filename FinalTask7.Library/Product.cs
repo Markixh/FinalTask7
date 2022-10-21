@@ -1,4 +1,6 @@
-﻿namespace FinalTask7.Library
+﻿using System.Numerics;
+
+namespace FinalTask7.Library
 {
     /// <summary>
     /// Товар
@@ -28,6 +30,14 @@
         {
             this.name = name;
             this.price = price;
+        }
+
+        public static List<Product> operator + (Product a, Product b)
+        {
+            List<Product> list = new List<Product>();
+            list.Add(a);
+            list.Add(b);
+            return list;
         }
     }
 }
