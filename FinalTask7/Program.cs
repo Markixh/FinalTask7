@@ -13,14 +13,25 @@ namespace FinalTask7
             stock.Add(new Product(name: "Мышь", price: 500.00m));
             stock.Add(new Product(name: "Клавиатура", price: 1000.00m));
             
-            //Покупателя
+            //Покупатель
             Buyer user = new Buyer("Андрей", Address.ConstAdr);
+            
             //Создаем заказ
-            Order<HomeDelivery> order = new Order<HomeDelivery>(user);
+            Order<HomeDelivery> order = new(user);
             order.Add(stock.Take("Мышь"));
             order.Add(stock.Take("Клавиатура"));
+            
+            order.Delivery.Status = Delivery.EStatus.Assembled;
+            order.DisplayStatus();
 
-          
+            order.Delivery.Status = Delivery.EStatus.Sent;
+            order.DisplayStatus();
+
+            order.Delivery.Status = Delivery.EStatus.Delivered;
+            order.DisplayStatus();
+
+            order.Delivery.Status = Delivery.EStatus.Received;
+            order.DisplayStatus();
         }
     }
 }

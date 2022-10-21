@@ -5,10 +5,28 @@
     /// </summary>
     public abstract class Delivery
     {
-        public string Address;
+        private protected string address;
+        private EStatus status;
+
+        public string Address { get { return address; } }
+        public virtual EStatus Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
+
         public Delivery()
         {
+            status = EStatus.Created;
+        }
 
+        public enum EStatus
+        {
+            Created = 0,
+            Assembled,
+            Sent,
+            Delivered,
+            Received
         }
     }
 
@@ -17,8 +35,15 @@
     /// </summary>
     public class HomeDelivery : Delivery
     {
-        public HomeDelivery():base(){}
-        /* ... */
+        public HomeDelivery(Buyer buyer) : base()
+        {
+            address = buyer.Address;
+        }
+        public override EStatus Status { get => base.Status; set => base.Status = value; }
+        public HomeDelivery()
+        {
+            Status = EStatus.Created;
+        }
     }
 
     /// <summary>
@@ -26,8 +51,15 @@
     /// </summary>
     public class PickPointDelivery : Delivery
     {
-        public PickPointDelivery() : base() { }
-        /* ... */
+        public PickPointDelivery(Point pickPoint) : base()
+        {
+            address = pickPoint.Address;
+        }
+        public override EStatus Status { get => base.Status; set => base.Status = value; }
+        public PickPointDelivery()
+        {
+            Status = EStatus.Created;
+        }
     }
 
     /// <summary>
@@ -35,7 +67,14 @@
     /// </summary>
     public class ShopDelivery : Delivery
     {
-        public ShopDelivery() : base() { }
-        /* ... */
+        public ShopDelivery(Point shop) : base()
+        {
+            address = shop.Address;
+        }
+        public override EStatus Status { get => base.Status; set => base.Status = value; }
+        public ShopDelivery()
+        {
+            Status = EStatus.Created;
+        }
     }
 }
