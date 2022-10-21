@@ -66,13 +66,24 @@
         /// </summary>
         /// <param name="product"></param>
         /// <returns></returns>
-        public bool Take(Product product)
+        public Product Take(int ind)
         {
-            if (products.Count > 0 && products.Remove(product))
-            {      
-                return true;
+            var take = products[ind];
+            products.RemoveAt(ind);
+            return take;
+        }
+        public Product Take(string name)
+        {
+            foreach (var product in products)
+            {
+                if (product.Name == name)
+                {
+                    var take = product;
+                    products.Remove(product);
+                    return take;
+                }
             }
-            else return false;
+            return null;
         }
     }
 }

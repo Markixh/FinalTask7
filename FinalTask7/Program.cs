@@ -17,14 +17,10 @@ namespace FinalTask7
             Buyer user = new Buyer("Андрей", Address.ConstAdr);
             //Создаем заказ
             Order<HomeDelivery> order = new Order<HomeDelivery>(user);
-            order.Add(new Product(name: "Мышь", price: 500.00m));
-            order.Add(new Product(name: "Клавиатура", price: 1000.00m));
+            order.Add(stock.Take("Мышь"));
+            order.Add(stock.Take("Клавиатура"));
 
-            foreach (var item in order.Products)
-            {
-                if (stock.Take(item)) Console.WriteLine($"{item.Name} отгружен со склада");
-                else Console.WriteLine($"{item.Name} нет на складе"); //работает не правильно
-            }
+          
         }
     }
 }
